@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="description" content="Book Tracker — a private, offline-first reading list." />
+    <title>Book Tracker</title>
+    <script>
+      // Apply the saved theme before first paint so there is no flash.
+      (function () {
+        try {
+          var theme = window.localStorage.getItem('bookTracker.theme')
+          if (theme === 'light' || theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', theme)
+          }
+        } catch (error) {
+          /* storage unavailable — fall back to the OS preference */
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
